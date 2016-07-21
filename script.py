@@ -304,13 +304,3 @@ for i, col in enumerate(df_outer.columns):
 df_outer.select([x for x in df_new.columns]).show()
 
 
-
-stream2es es --source "http://kibana:k1bana.1q2w3e4r!@auctioneer-logs.prod.aws.skyscnr.com/auctioneer_logs_prod-2016.03.31" --target "http://kibana:k1bana.1q2w3e4r!@auctioneer-logs.sandbox.aws.skyscnr.com/auctioneer_logs_prod-2016.03.31"
-
-sudo yum install -y nodejs npm --enablerepo=epel
-sudo yum erase -y nodejs
-curl --silent --location https://rpm.nodesource.com/setup_4.x | sudo bash -
-sudo yum install -y nodejs
-sudo npm install -y elasticdump -g
-elasticdump --input=mappingnew.json --output=http://localhost:9200/auctioneer_logs_test-2016.05.18 --type=mapping
-elasticdump --input=datanew.json --output=http://localhost:9200/auctioneer_logs_test-2016.05.18 --type=data
